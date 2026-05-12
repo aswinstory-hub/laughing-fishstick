@@ -18,7 +18,7 @@
 # 🕹️ Phase 1 — Player Movement
 
 - [x] ~~Create player object~~
-- [ ] Add horizontal movement
+- [x] ~~Add horizontal movement~~
 - [ ] Add jumping
 - [ ] Add gravity
 - [ ] Add friction

@@ -24,7 +24,7 @@ class Game
 
     void Update()
     {
-        
+        player.Move(); 
     }
 
     void Draw()

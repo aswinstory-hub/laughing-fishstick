@@ -8,10 +8,11 @@
 - Initialize Git
 - Make Initial commit
 
-### Finshed 
+### Finished 
 
 - All
 - Simple Player Square
+- Add Horizontal Movement
 
 ### Next
 
