@@ -11,6 +11,7 @@
 ### Finshed 
 
 - All
+- Simple Player Square
 
 ### Next
 

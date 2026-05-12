@@ -5,19 +5,19 @@
 
 # 📦 Phase 0 — Setup
 
-- [x] Install .NET SDK
-- [x] Install VS Code / Visual Studio
-- [x] Install Raylib-cs
-- [x] Create project structure
-- [x] Setup Git repository
-- [x] Create game window
-- [x] Create update/draw loop
+- [x] ~~Install .NET SDK~~
+- [x] ~~Install VS Code / Visual Studio~~
+- [x] ~~Install Raylib-cs~~
+- [x] ~~Create project structure~~
+- [x] ~~Setup Git repository~~
+- [x] ~~Create game window~~
+- [x] ~~Create update/draw loop~~
 
 ---
 
 # 🕹️ Phase 1 — Player Movement
 
-- [ ] Create player object
+- [x] ~~Create player object~~
 - [ ] Add horizontal movement
 - [ ] Add jumping
 - [ ] Add gravity
