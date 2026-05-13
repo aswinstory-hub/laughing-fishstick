@@ -19,12 +19,12 @@
 
 - [x] ~~Create player object~~
 - [x] ~~Add horizontal movement~~
-- [ ] Add jumping
-- [ ] Add gravity
-- [ ] Add friction
+- [x] ~~Add gravity~~
+- [x] ~~Add jumping~~
+- [x] ~~Add friction~~
 - [ ] Add grounded check
-- [ ] Add velocity system
-- [ ] Add delta time movement
+- [x] ~~Add velocity system~~
+- [x] ~~Add delta time movement~~
 
 ---
 

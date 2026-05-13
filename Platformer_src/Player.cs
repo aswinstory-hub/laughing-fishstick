@@ -9,26 +9,31 @@ class Player
     int SIZE = 50;
     Vector2 velocity = new Vector2(0, 0);
     int direction = 0; // -1 means left, 1 means right
+    int jump = 0;
+    float jumpHeight = 400f;
     float maxSpeed = 400f;
     float acceleration = 2000f;
     float friction = 1800f;
+    float gravity = 20f;
 
-
+//============================================================================================
 
     public Player()
     {
         Console.WriteLine("Player Has Spawned");
     }
 
+//============================================================================================
+
     void HandleInput()
     {
-        var key = Raylib.IsKeyDown;
+        var keyDown = Raylib.IsKeyDown;
 
-        if (key(KeyboardKey.Left))
+        if (keyDown(KeyboardKey.Left))
         {
             direction = -1;
         }
-        else if (key(KeyboardKey.Right))
+        else if (keyDown(KeyboardKey.Right))
         {
             direction = 1;
         }
@@ -36,40 +41,61 @@ class Player
         {
             direction = 0;
         }
+    
+        if (keyDown(KeyboardKey.Space))
+        {
+            jump = 1;
+        }
+        else
+        {
+            jump = 0;
+        }
     }
+
+//============================================================================================
 
     void CalculateVelocity()
     {
-        // Calculate X velocity
         float dt = Raylib.GetFrameTime();
 
-            // Accelerate
-            if (direction != 0)
+        // Calculate X velocity
+        // Accelerate
+        if (direction != 0)
+        {
+            velocity.X += direction * acceleration * dt;
+        }
+        else
+        {
+            // Friction / deceleration
+            if (velocity.X > 0)
             {
-                velocity.X += direction * acceleration * dt;
+                velocity.X -= friction * dt;
+
+                if (velocity.X < 0)
+                    velocity.X = 0;
             }
-            else
+            else if (velocity.X < 0)
             {
-                // Friction / deceleration
+                velocity.X += friction * dt;
+
                 if (velocity.X > 0)
-                {
-                    velocity.X -= friction * dt;
-
-                    if (velocity.X < 0)
-                        velocity.X = 0;
-                }
-                else if (velocity.X < 0)
-                {
-                    velocity.X += friction * dt;
-
-                    if (velocity.X > 0)
-                        velocity.X = 0;
-                }
+                    velocity.X = 0;
             }
+        }
 
-            // Clamp max speed
-            velocity.X = Math.Clamp(velocity.X, -maxSpeed, maxSpeed);        
+        // Clamp max speed
+        velocity.X = Math.Clamp(velocity.X, -maxSpeed, maxSpeed);        
+
+        //Calculate Y velocity
+        velocity.Y += gravity;
+
+        if (jump != 0)
+        {
+            velocity.Y -= jumpHeight;
+        }
     }
+
+//============================================================================================
 
     public void Move()
     {
@@ -79,8 +105,10 @@ class Player
         CalculateVelocity();
 
         pos.X += velocity.X * dt;
+        pos.Y += velocity.Y * dt;
     }
 
+//============================================================================================
 
     public void Draw()
     {

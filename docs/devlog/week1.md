@@ -13,7 +13,21 @@
 - All
 - Simple Player Square
 - Add Horizontal Movement
+- Add gravity
 
 ### Next
 
-- Create Player Square
+- Add collision
+
+## 13-May-2026
+
+### Goals
+
+- Setup Collision
+- Add Tilemap
+
+### Finished
+
+
+
+### Next
