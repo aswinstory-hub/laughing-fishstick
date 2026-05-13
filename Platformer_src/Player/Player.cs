@@ -5,7 +5,7 @@ using Raylib_cs;
 class Player
 {
     // VARS
-    Vector2 pos = new Vector2(360, 360);
+    Vector2 pos = new Vector2(0, 0);
     int SIZE = 50;
     Vector2 velocity = new Vector2(0, 0);
     int direction = 0; // -1 means left, 1 means right
