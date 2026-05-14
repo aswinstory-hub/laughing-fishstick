@@ -40,6 +40,8 @@
 ### Finished
 
 - All
+- Setup X collision
+- Fixed all bugs
 
 ### Bugs
 

@@ -31,12 +31,12 @@
 # 🧱 Phase 2 — Collision System
 
 - [x] ~~Add floor collision~~
-- [ ] Add wall collision
+- [x] ~~Add wall collision~~
 - [x] ~~Add ceiling collision~~
-- [ ] Prevent clipping
+- [x] ~~Prevent clipping~~
 - [x] ~~Separate horizontal collision~~
-- [ ] Separate vertical collision
-- [ ] Add collision debugging
+- [x] ~~Separate vertical collision~~
+- [x] ~~Add collision debugging~~
 
 ---
 

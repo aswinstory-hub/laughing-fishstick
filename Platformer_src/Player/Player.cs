@@ -6,7 +6,7 @@ class Player
 {
     // VARS
     Collision collision;
-    public Vector2 pos = new Vector2(0, 0);
+    public Vector2 pos = new Vector2(16, 16);
     public int SIZE = 16;
     public Vector2 velocity = new Vector2(0, 0);
     int direction = 0; // -1 means left, 1 means right
@@ -100,6 +100,11 @@ class Player
             velocity.Y -= jumpHeight;
             isGrounded = false;
         }
+
+        if (velocity.Y != 0)
+        {
+            isGrounded = false;
+        } 
     }
 
 //============================================================================================
@@ -118,8 +123,9 @@ class Player
     {
         HandleInput();
         CalculateVelocity();
+        collision.ResolveYCollision(player, tileMap);
+        collision.ResolveXCollision(player, tileMap);
         Move();
-        collision.CheckYCollision(player, tileMap);
     }
 
     public void Draw()
