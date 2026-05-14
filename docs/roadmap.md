@@ -22,7 +22,7 @@
 - [x] ~~Add gravity~~
 - [x] ~~Add jumping~~
 - [x] ~~Add friction~~
-- [ ] Add grounded check
+- [x] ~~Add grounded check~~
 - [x] ~~Add velocity system~~
 - [x] ~~Add delta time movement~~
 
@@ -30,11 +30,11 @@
 
 # 🧱 Phase 2 — Collision System
 
-- [ ] Add floor collision
+- [x] ~~Add floor collision~~
 - [ ] Add wall collision
-- [ ] Add ceiling collision
+- [x] ~~Add ceiling collision~~
 - [ ] Prevent clipping
-- [ ] Separate horizontal collision
+- [x] ~~Separate horizontal collision~~
 - [ ] Separate vertical collision
 - [ ] Add collision debugging
 

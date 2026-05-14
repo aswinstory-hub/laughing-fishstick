@@ -5,9 +5,10 @@ using Raylib_cs;
 class Player
 {
     // VARS
-    Vector2 pos = new Vector2(0, 0);
-    int SIZE = 50;
-    Vector2 velocity = new Vector2(0, 0);
+    Collision collision;
+    public Vector2 pos = new Vector2(0, 0);
+    public int SIZE = 16;
+    public Vector2 velocity = new Vector2(0, 0);
     int direction = 0; // -1 means left, 1 means right
     int jump = 0;
     float jumpHeight = 400f;
@@ -15,12 +16,14 @@ class Player
     float acceleration = 2000f;
     float friction = 1800f;
     float gravity = 20f;
+    public bool isGrounded = false;
 
 //============================================================================================
 
-    public Player()
+    public Player(string name)
     {
-        Console.WriteLine("Player Has Spawned");
+        Console.WriteLine(name + " Has Spawned");
+        collision = new Collision();
     }
 
 //============================================================================================
@@ -87,28 +90,37 @@ class Player
         velocity.X = Math.Clamp(velocity.X, -maxSpeed, maxSpeed);        
 
         //Calculate Y velocity
-        velocity.Y += gravity;
+        if (!isGrounded)
+        {
+            velocity.Y += gravity;
+        }
 
-        if (jump != 0)
+        if (jump != 0 && isGrounded)
         {
             velocity.Y -= jumpHeight;
+            isGrounded = false;
         }
     }
 
 //============================================================================================
 
-    public void Move()
+    void Move()
     {
         float dt = Raylib.GetFrameTime(); 
-
-        HandleInput();
-        CalculateVelocity();
 
         pos.X += velocity.X * dt;
         pos.Y += velocity.Y * dt;
     }
 
 //============================================================================================
+
+    public void Update(Player player, TileMap tileMap)
+    {
+        HandleInput();
+        CalculateVelocity();
+        Move();
+        collision.CheckYCollision(player, tileMap);
+    }
 
     public void Draw()
     {

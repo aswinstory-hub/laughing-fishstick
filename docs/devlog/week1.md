@@ -28,6 +28,20 @@
 
 ### Finished
 
+- None
 
+## 14-May-2026
 
-### Next
+### Goals
+
+- Setup Y collision
+- Setup better tilemap class
+
+### Finished
+
+- All
+
+### Bugs
+
+1. When player exits outside the array cords, it gives an array and chrashes 
+- Solution: Add world border and x collision

@@ -9,8 +9,8 @@ class Game
     {
         Raylib.InitWindow(1280, 720, "Platformer");
         Raylib.SetTargetFPS(60);
-        player = new Player();
         tileMap = new TileMap();
+        player = new Player("Aswin");
     }
 
     public void Run()
@@ -26,7 +26,7 @@ class Game
 
     void Update()
     {
-        player.Move(); 
+        player.Update(player, tileMap); 
     }
 
     void Draw()
