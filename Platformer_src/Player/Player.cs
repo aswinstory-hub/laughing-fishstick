@@ -12,10 +12,10 @@ class Player
     int direction = 0; // -1 means left, 1 means right
     int jump = 0;
     float jumpHeight = 400f;
-    float maxSpeed = 400f;
-    float acceleration = 2000f;
-    float friction = 1800f;
-    float gravity = 20f;
+    float maxSpeed = 260f;
+    float acceleration = 1800f;
+    float friction = 2400f;
+    float gravity = 1400f;
     public bool isGrounded = false;
 
 //============================================================================================
@@ -89,17 +89,16 @@ class Player
         // Clamp max speed
         velocity.X = Math.Clamp(velocity.X, -maxSpeed, maxSpeed);        
 
-        //Calculate Y velocity
-        if (!isGrounded)
+        if (jump != 0  && isGrounded)
         {
-            velocity.Y += gravity;
-        }
-
-        if (jump != 0 && isGrounded)
-        {
-            velocity.Y -= jumpHeight;
+            velocity.Y = -jumpHeight;
             isGrounded = false;
         }
+
+        //Calculate Y velocity
+        velocity.Y += gravity * dt;
+
+
 
         if (velocity.Y != 0)
         {
@@ -130,7 +129,7 @@ class Player
 
     public void Draw()
     {
-        Raylib.DrawRectangle((int)pos.X, (int)pos.Y, SIZE, SIZE, Color.DarkBlue);
+        Raylib.DrawRectangle((int)pos.X, (int)pos.Y, SIZE, SIZE, Color.DarkBrown);
     }
     
 }

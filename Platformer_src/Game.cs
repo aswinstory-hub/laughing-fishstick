@@ -35,6 +35,8 @@ class Game
 
         Raylib.ClearBackground(Color.Black);
 
+        tileMap.BackgroundDraw();
+
         tileMap.Draw();
 
         player.Draw();
