@@ -47,3 +47,19 @@
 
 1. When player exits outside the array cords, it gives an array and chrashes 
 - Solution: Add world border and x collision
+
+## 15-May-2026
+
+### Goals
+
+- Setup Tiled
+- Setup TileMap and Collision
+- Render level
+
+### Finished
+
+- All
+
+### Next
+
+- Setup Camera

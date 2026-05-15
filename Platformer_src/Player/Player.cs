@@ -6,7 +6,7 @@ class Player
 {
     // VARS
     Collision collision;
-    public Vector2 pos = new Vector2(16, 16);
+    public Vector2 pos = new Vector2(64, 64);
     public int SIZE = 16;
     public Vector2 velocity = new Vector2(0, 0);
     int direction = 0; // -1 means left, 1 means right

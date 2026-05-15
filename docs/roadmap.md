@@ -42,13 +42,13 @@
 
 # 🗺️ Phase 3 — Tilemaps
 
-- [ ] Install Tiled
-- [ ] Create tileset
-- [ ] Create tilemap
-- [ ] Export tilemap
-- [ ] Load tilemap in Raylib
-- [ ] Render tiles
-- [ ] Add collision layer
+- [x] ~~Install Tiled~~
+- [x] ~~Create tileset~~
+- [x] ~~Create tilemap~~
+- [x] ~~Export tilemap~~
+- [x] ~~Load tilemap in Raylib~~
+- [x] ~~Render tiles~~
+- [x] ~~Add collision layer~~
 - [ ] Add multiple levels
 
 ---
