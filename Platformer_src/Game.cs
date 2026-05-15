@@ -4,6 +4,7 @@ class Game
 {
     Player player;
     TileMap tileMap;
+    GameCamera gameCamera;
 
     public Game()
     {
@@ -11,6 +12,7 @@ class Game
         Raylib.SetTargetFPS(60);
         tileMap = new TileMap();
         player = new Player("Aswin");
+        gameCamera = new GameCamera(1280f, 720f, 1280f, 400f);
     }
 
     public void Run()
@@ -27,6 +29,7 @@ class Game
     void Update()
     {
         player.Update(player, tileMap); 
+        gameCamera.Update(player.pos);
     }
 
     void Draw()
@@ -35,11 +38,15 @@ class Game
 
         Raylib.ClearBackground(Color.Black);
 
+        gameCamera.Begin();
+
         tileMap.BackgroundDraw();
 
         tileMap.Draw();
 
         player.Draw();
+
+        gameCamera.End();
 
         Raylib.EndDrawing();
 

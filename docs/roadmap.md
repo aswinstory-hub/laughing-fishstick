@@ -55,12 +55,12 @@
 
 # 🎥 Phase 4 — Camera System
 
-- [ ] Setup Camera2D
-- [ ] Follow player
-- [ ] Add smooth camera movement
-- [ ] Add camera offset
-- [ ] Add camera bounds
-- [ ] Add basic zoom
+- [x] ~~Setup Camera2D~~
+- [x] ~~Follow player~~
+- [x] ~~Add smooth camera movement~~
+- [x] ~~Add camera offset~~
+- [x] ~~Add camera bounds~~
+- [x] ~~Add basic zoom~~
 
 ---
 

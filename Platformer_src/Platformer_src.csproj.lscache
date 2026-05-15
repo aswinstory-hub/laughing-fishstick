@@ -60,6 +60,7 @@ obj/Debug/net10.0/
  Platformer_src.AssemblyInfo.cs
  Platformer_src.GlobalUsings.g.cs
 Player/
+ Camera.cs
  Collision.cs
  Player.cs
 Program.cs

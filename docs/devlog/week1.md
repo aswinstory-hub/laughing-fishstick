@@ -59,6 +59,7 @@
 ### Finished
 
 - All
+- Setup Camera
 
 ### Next
 
