@@ -63,4 +63,17 @@
 
 ### Next
 
-- Setup Camera
+- Smoothen Camera
+
+## 16-May-2026
+
+### Goals
+
+- Smoothen Camera
+- Render Basic Player Sprite
+
+### Finished
+
+
+
+### Next

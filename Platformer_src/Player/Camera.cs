@@ -75,25 +75,34 @@ public class GameCamera
         float top = Camera.Target.Y - deadZoneHeight / 2f;
         float bottom = Camera.Target.Y + deadZoneHeight / 2f;
 
+        Vector2 desiredPosition = new Vector2(Camera.Target.X, Camera.Target.Y);
+
         // Horizontal
         if (playerPos.X < left)
         {
-            Camera.Target.X = playerPos.X + deadZoneWidth / 2f;
+            desiredPosition.X = playerPos.X + deadZoneWidth / 2f;
         }
         else if (playerPos.X > right)
         {
-            Camera.Target.X = playerPos.X - deadZoneWidth / 2f;
+            desiredPosition.X = playerPos.X - deadZoneWidth / 2f;
         }
 
         // Vertical
         if (playerPos.Y < top)
         {
-            Camera.Target.Y = playerPos.Y + deadZoneHeight / 2f;
+            desiredPosition.Y = playerPos.Y + deadZoneHeight / 2f;
         }
         else if (playerPos.Y > bottom)
         {
-            Camera.Target.Y = playerPos.Y - deadZoneHeight / 2f;
+            desiredPosition.Y = playerPos.Y - deadZoneHeight / 2f;
         }
+
+
+        Camera.Target = Vector2.Lerp(
+            Camera.Target,
+            desiredPosition,
+            0.1f
+        );
     }
     private void ClampToWorld()
     {
