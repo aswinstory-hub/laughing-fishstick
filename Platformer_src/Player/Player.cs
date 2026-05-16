@@ -158,7 +158,7 @@ class Player
         collision.ResolveYCollision(player, tileMap);
         collision.ResolveXCollision(player, tileMap);
         Move();
-        animationPlayer.Update(state);
+        animationPlayer.Update(state, direction);
     }
 
     public void Draw()

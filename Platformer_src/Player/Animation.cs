@@ -19,6 +19,7 @@ class AnimationPlayer
 
     private float SourceX;
     private float SourceY;
+    private float direction = 1;
 
     public AnimationPlayer()
     {
@@ -26,7 +27,7 @@ class AnimationPlayer
         Raylib.SetTextureFilter(spriteSheet, TextureFilter.Point);
     }
 
-    public void Update(PlayerState state)
+    public void Update(PlayerState state, int direc)
     {
         switch(state)
         {
@@ -56,6 +57,15 @@ class AnimationPlayer
                 currentFrame = 0;
             }
         }
+
+        if (direc == 0)
+        {
+            direction = direction * 1;
+        }
+        else if (direc != 0)
+        {
+            direction = direc;
+        }
     }
 
     public void Draw(Vector2 pos)
@@ -63,7 +73,7 @@ class AnimationPlayer
         SourceX = currentFrame * frameWidth;
         SourceY = currentState * frameHeight;
 
-        Rectangle source = new Rectangle(SourceX, SourceY, frameWidth, frameHeight);
+        Rectangle source = new Rectangle(SourceX, SourceY, frameWidth * direction, frameHeight);
 
         Rectangle dest = new Rectangle(
             pos.X - 12, pos.Y - 14, frameWidth, frameHeight);
