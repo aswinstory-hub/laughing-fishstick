@@ -81,7 +81,7 @@ class TileMap
         int playerTileX = (int)(player.pos.X / TILE_SIZE);
         int playerTileY = (int)(player.pos.Y / TILE_SIZE);
 
-        return collisionTiles[playerTileY, playerTileX] == 258;
+        return collisionTiles[playerTileY, playerTileX] == 2;
     } 
 
     public void Draw()

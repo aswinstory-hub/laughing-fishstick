@@ -49,7 +49,7 @@
 - [x] ~~Load tilemap in Raylib~~
 - [x] ~~Render tiles~~
 - [x] ~~Add collision layer~~
-- [ ] Add multiple levels
+- [x] ~~Add multiple levels~~
 
 ---
 
@@ -72,7 +72,7 @@
 - [x] ~~Add run animation~~
 - [x] ~~Add jump animation~~
 - [ ] Add falling animation
-- [ ] Flip sprites correctly
+- [x] ~~Flip sprites correctly~~
 
 ---
 
