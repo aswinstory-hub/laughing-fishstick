@@ -2,21 +2,39 @@ using System;
 using System.Numerics;
 using Raylib_cs;
 
+public enum PlayerState
+{
+    Idle,
+    Running,
+    Jumping
+
+}
+
+
 class Player
 {
     // VARS
     Collision collision;
-    public Vector2 pos = new Vector2(64, 64);
-    public int SIZE = 16;
+    AnimationPlayer animationPlayer;
+
+    public Vector2 pos = new Vector2(96, 96);
+    
+    public int height = 12;
+    public int width = 8; 
     public Vector2 velocity = new Vector2(0, 0);
     int direction = 0; // -1 means left, 1 means right
+
     int jump = 0;
     float jumpHeight = 400f;
+    public bool isGrounded = false;
+
     float maxSpeed = 260f;
     float acceleration = 1800f;
     float friction = 2400f;
     float gravity = 1400f;
-    public bool isGrounded = false;
+
+    public PlayerState state;
+
 
 //============================================================================================
 
@@ -24,6 +42,9 @@ class Player
     {
         Console.WriteLine(name + " Has Spawned");
         collision = new Collision();
+        animationPlayer = new AnimationPlayer();
+        state = new PlayerState();
+        state = PlayerState.Idle;
     }
 
 //============================================================================================
@@ -35,19 +56,23 @@ class Player
         if (keyDown(KeyboardKey.Left))
         {
             direction = -1;
+            state = PlayerState.Running;
         }
         else if (keyDown(KeyboardKey.Right))
         {
             direction = 1;
+            state = PlayerState.Running;
         }
         else
         {
             direction = 0;
+            state = PlayerState.Idle;
         }
     
         if (keyDown(KeyboardKey.Space))
         {
             jump = 1;
+            state = PlayerState.Jumping;
         }
         else
         {
@@ -125,11 +150,13 @@ class Player
         collision.ResolveYCollision(player, tileMap);
         collision.ResolveXCollision(player, tileMap);
         Move();
+        animationPlayer.Update(state);
     }
 
     public void Draw()
     {
-        Raylib.DrawRectangle((int)pos.X, (int)pos.Y, SIZE, SIZE, Color.DarkBrown);
+        animationPlayer.Draw(pos);
+        // Raylib.DrawRectangle((int)pos.X, (int)pos.Y, width, height, Color.Blue);
     }
     
 }

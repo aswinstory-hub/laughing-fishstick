@@ -66,11 +66,11 @@
 
 # 🏃 Phase 5 — Animation
 
-- [ ] Import sprite sheet
-- [ ] Create animation system
-- [ ] Add idle animation
-- [ ] Add run animation
-- [ ] Add jump animation
+- [x] ~~Import sprite sheet~~
+- [x] ~~Create animation system~~
+- [x] ~~Add idle animation~~
+- [x] ~~Add run animation~~
+- [x] ~~Add jump animation~~
 - [ ] Add falling animation
 - [ ] Flip sprites correctly
 
@@ -78,13 +78,13 @@
 
 # 🧠 Phase 6 — State Machines
 
-- [ ] Create player states
-- [ ] Add idle state
-- [ ] Add run state
-- [ ] Add jump state
+- [x] ~~Create player states~~
+- [x] ~~Add idle state~~
+- [x] ~~Add run state~~
+- [x] ~~Add jump state~~
 - [ ] Add fall state
-- [ ] Add state transitions
-- [ ] Separate animation states
+- [x] ~~Add state transitions~~
+- [x] ~~Separate animation states~~
 
 ---
 

@@ -16,18 +16,18 @@ class Collision
             
             (float)player.pos.X, 
             (float)player.pos.Y + (player.velocity.Y * dt), 
-            (float)player.SIZE, 
-            (float)player.SIZE
+            (float)player.width, 
+            (float)player.height
             
         );
 
         int TILE_SIZE = tileMap.TILE_SIZE;
 
         int left   = (int)(playerRect.X / tileMap.TILE_SIZE);
-        int right  = (int)((playerRect.X + player.SIZE - 1) / tileMap.TILE_SIZE);
+        int right  = (int)((playerRect.X + player.width - 1) / tileMap.TILE_SIZE);
 
         int top    = (int)(playerRect.Y / tileMap.TILE_SIZE);
-        int bottom = (int)((playerRect.Y + player.SIZE - 1) / tileMap.TILE_SIZE);
+        int bottom = (int)((playerRect.Y + player.height - 1) / tileMap.TILE_SIZE);
 
         player.isGrounded = false;
 
@@ -76,18 +76,18 @@ class Collision
             
             (float)player.pos.X + (player.velocity.X * dt), 
             (float)player.pos.Y, 
-            (float)player.SIZE, 
-            (float)player.SIZE
+            (float)player.width, 
+            (float)player.height
             
         );
 
         int TILE_SIZE = tileMap.TILE_SIZE;
 
         int left   = (int)(playerRect.X / tileMap.TILE_SIZE);
-        int right  = (int)((playerRect.X + player.SIZE - 1) / tileMap.TILE_SIZE);
+        int right  = (int)((playerRect.X + player.width - 1) / tileMap.TILE_SIZE);
 
         int top    = (int)(playerRect.Y / tileMap.TILE_SIZE);
-        int bottom = (int)((playerRect.Y + player.SIZE - 1) / tileMap.TILE_SIZE);
+        int bottom = (int)((playerRect.Y + player.height - 1) / tileMap.TILE_SIZE);
 
 
         for (int y = top; y <= bottom; y++)

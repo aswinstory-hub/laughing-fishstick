@@ -74,6 +74,7 @@
 
 ### Finished
 
-
+- All
+- Added animation
 
 ### Next
