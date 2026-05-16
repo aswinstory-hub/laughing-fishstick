@@ -19,21 +19,24 @@ public class Map
 
 class TileMap
 {
-    public int[,] Tiles;
-    public int[,] collisionTiles;
-    public int[,] backgroundTiles;
+    public int[,] Tiles = new int[0, 0];
+    public int[,] collisionTiles = new int[0, 0];
+    public int[,] backgroundTiles = new int[0, 0];
     Texture2D tileSet;
+    Texture2D door;
     public int TILE_SIZE = 16;
 
-    public TileMap()
+    public void LoadMap(int level)
     {
-        string json = File.ReadAllText("../Assets/Levels/level1.tmj");
+        int LEVEL = level;
+
+        string json = File.ReadAllText("../Assets/Levels/level"+ LEVEL +".tmj");
 
         tileSet = Raylib.LoadTexture("../Assets/world_tileset.png");
 
         Map map = JsonSerializer.Deserialize<Map>(json) ?? throw new Exception("Failed to Deserialize json");
 
-        Tiles = new int[map.height, map.width];
+        Tiles = new int[map.height, map.width] ?? throw new Exception("Fail");
 
         int[] rawData = map.layers[1].data;
 
@@ -73,6 +76,14 @@ class TileMap
         }
     }
 
+    public bool IsLevelComplete(Player player)
+    {
+        int playerTileX = (int)(player.pos.X / TILE_SIZE);
+        int playerTileY = (int)(player.pos.Y / TILE_SIZE);
+
+        return collisionTiles[playerTileY, playerTileX] == 258;
+    } 
+
     public void Draw()
     {
         int columns = tileSet.Width / TILE_SIZE;
@@ -86,7 +97,7 @@ class TileMap
                 // 0 means empty
                 if (tileId == 0)
                     continue;
-
+                
                 // Tiled starts counting from 1
                 tileId--;
 

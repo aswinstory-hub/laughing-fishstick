@@ -16,6 +16,7 @@ class Player
     // VARS
     Collision collision;
     AnimationPlayer animationPlayer;
+    public PlayerState state;
 
     public Vector2 pos = new Vector2(96, 96);
     
@@ -33,9 +34,6 @@ class Player
     float acceleration = 1800f;
     float friction = 2400f;
     float gravity = 1400f;
-
-    public PlayerState state;
-
 
 //============================================================================================
 

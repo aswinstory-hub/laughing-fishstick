@@ -1,10 +1,12 @@
 using Raylib_cs;
+using System.Numerics;
 
 class Game
 {
     Player player;
     TileMap tileMap;
     GameCamera gameCamera;
+    int currentLevel = 1;
 
     public Game()
     {
@@ -13,6 +15,7 @@ class Game
         tileMap = new TileMap();
         player = new Player("Aswin");
         gameCamera = new GameCamera(1280f, 720f, 1280f, 400f);
+        tileMap.LoadMap(currentLevel);
     }
 
     public void Run()
@@ -29,6 +32,12 @@ class Game
     void Update()
     {
         player.Update(player, tileMap); 
+
+        if (tileMap.IsLevelComplete(player))
+        {
+            NextLevel();
+        }
+
         gameCamera.Update(player.pos);
     }
 
@@ -50,5 +59,15 @@ class Game
 
         Raylib.EndDrawing();
 
+    }
+
+    void NextLevel()
+    {
+        currentLevel ++;
+
+        tileMap.LoadMap(currentLevel);
+
+        player.pos = new Vector2(96, 96);
+        player.velocity = Vector2.Zero;
     }
 }
