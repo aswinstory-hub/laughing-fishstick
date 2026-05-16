@@ -29,6 +29,7 @@ class Player
     public bool isGrounded = false;
 
     float maxSpeed = 260f;
+    float maxGroundSpeed = 200f;
     float acceleration = 1800f;
     float friction = 2400f;
     float gravity = 1400f;
@@ -112,7 +113,14 @@ class Player
         }
 
         // Clamp max speed
-        velocity.X = Math.Clamp(velocity.X, -maxSpeed, maxSpeed);        
+        if (!isGrounded)
+        {
+            velocity.X = Math.Clamp(velocity.X, -maxSpeed, maxSpeed);
+        }
+        else if (isGrounded)
+        {
+            velocity.X = Math.Clamp(velocity.X, -maxGroundSpeed, maxGroundSpeed);
+        }        
 
         if (jump != 0  && isGrounded)
         {

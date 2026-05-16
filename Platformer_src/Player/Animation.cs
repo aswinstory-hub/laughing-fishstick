@@ -23,6 +23,7 @@ class AnimationPlayer
     public AnimationPlayer()
     {
         spriteSheet = Raylib.LoadTexture("../Assets/knight.png");
+        Raylib.SetTextureFilter(spriteSheet, TextureFilter.Point);
     }
 
     public void Update(PlayerState state)
